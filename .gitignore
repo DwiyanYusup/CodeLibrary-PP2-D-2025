@@ -1,0 +1,10 @@
+# Ignore build folders
+/build/
+dist/
+
+# Ignore NetBeans private files
+nbproject/private/
+
+# Optional OS files
+.DS_Store
+Thumbs.db
