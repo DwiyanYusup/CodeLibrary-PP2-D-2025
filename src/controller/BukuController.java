@@ -11,11 +11,14 @@ import view.BukuView;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class BukuController {
 
     private BukuView view;
     private BukuDAO dao;
+    private int selectedId = -1;
 
     public BukuController(BukuView view) {
         this.view = view;

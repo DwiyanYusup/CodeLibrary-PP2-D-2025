@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class BukuView extends JFrame {
+public class BukuView extends JPanel {
 
     public JTextField txtJudul;
     public JTextField txtPenulis;
@@ -26,14 +26,10 @@ public class BukuView extends JFrame {
 
     public BukuView() {
 
-        setTitle("Manajemen Buku Perpustakaan");
-        setSize(650, 400);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // ===== PANEL INPUT =====
-        JPanel panelInput = new JPanel(new GridLayout(3, 2, 5, 5));
+        JPanel panelInput = new JPanel(new GridLayout(5, 2, 5, 5));
 
         txtJudul = new JTextField();
         txtPenulis = new JTextField();
@@ -53,10 +49,11 @@ public class BukuView extends JFrame {
         panelInput.add(txtStok);
 
         // ===== TABEL =====
-        String[] kolom = {"ID", "Judul", "Penulis", "Penerbit", "TahunTerbit", "Stok",};
-        model = new DefaultTableModel(kolom, 0);
+        model = new DefaultTableModel(
+                new Object[]{"ID", "Judul", "Penulis", "Penerbit", "Tahun", "Stok"}, 0
+        );
         table = new JTable(model);
-        JScrollPane scrollPane = new JScrollPane(table);
+        add(new JScrollPane(table), BorderLayout.CENTER);
 
         // ===== PANEL BUTTON =====
         JPanel panelButton = new JPanel();
@@ -73,7 +70,6 @@ public class BukuView extends JFrame {
 
         // ===== TAMBAH KE FRAME =====
         add(panelInput, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
         add(panelButton, BorderLayout.SOUTH);
     }
     // ================== GETTER COMPONENT ==================

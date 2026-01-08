@@ -2,15 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Main;
+package main;
 
-import view.BukuView;
-import controller.BukuController;
+import javax.swing.SwingUtilities;
 
 public class Main {
+
     public static void main(String[] args) {
-        BukuView view = new BukuView();
-        new BukuController(view);
-        view.setVisible(true);
+
+        SwingUtilities.invokeLater(() -> {
+            try {
+                new MainView().setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }
